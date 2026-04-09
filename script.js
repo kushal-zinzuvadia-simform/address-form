@@ -4,39 +4,33 @@ let checkBox = document.getElementById("sameAddress");
 let presentAddress = document.getElementById("present-address");
 let permanentAddress = document.getElementById("permanent-address");
 
-
 // Inputs
-let presentStreet = document.getElementById("street");
-let permanentStreet = document.getElementById("street-permanent");
+let presentFields = document.querySelectorAll(".present-field");
+let permanentFields = document.querySelectorAll(".permanent-field");
 
-let presentCity = document.getElementById("city");
-let permanentCity = document.getElementById("city-permanent");
+let copyValues = (destination, source) => {
+    for (let i = 0; i < destination.length; i++) {
+        destination[i].value = source[i].value;
+    }
+};
 
-let presentState = document.getElementById("state");
-let permanentState = document.getElementById("state-permanent");
-
-let presentPincode = document.getElementById("pincode");
-let permanentPincode = document.getElementById("pincode-permanent");
+let setReadOnly = (fields, state) => {
+    for (const field of fields) {
+        field.readOnly = state;
+    }
+};
 
 checkBox.addEventListener("change", () => {
     if (checkBox.checked) {
-        permanentStreet.value = presentStreet.value;
-        permanentStreet.readOnly = true;
-
-        permanentCity.value = presentCity.value;
-        permanentCity.readOnly = true;
-
-        permanentState.value = presentState.value;
-        permanentState.readOnly = true;
-
-        permanentPincode.value = presentPincode.value;
-        permanentPincode.readOnly = true;
+        copyValues(permanentFields, presentFields);
+        setReadOnly(permanentFields, true);
     } else {
-        permanentStreet.readOnly = false;
-        permanentCity.readOnly = false;
-        permanentState.readOnly = false;
-        permanentPincode.readOnly = false;
+        setReadOnly(permanentFields, false);
     }
 });
 
-
+presentAddress.addEventListener("input", () => {
+    if (checkBox.checked) {
+        copyValues(permanentFields, presentFields);
+    }
+})
