@@ -77,13 +77,13 @@ const validateAllFields = () => {
     return valid;
 };
 
-let copyValues = (destination, source) => {
+const copyValues = (destination, source) => {
     for (let i = 0; i < destination.length; i++) {
         destination[i].value = source[i].value;
     }
 };
 
-let setDisabled = (fields, state) => {
+const setDisabled = (fields, state) => {
     for (const field of fields) {
         field.disabled = state;
     }
