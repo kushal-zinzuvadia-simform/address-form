@@ -5,6 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .error-msg {
+            color: red;
+            margin-left: 12px;
+            display: inline-block;
+            min-width: 220px;
+            font-size: 0.95rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -12,20 +21,43 @@
         <h1>My form</h1>
         <h3>Present Address</h3>
         <form action="" id="present-address">
-            <label for="street">Street: </label><input type="text" id="street" class="present-field">
-            <label for="city">City: </label><input type="text" id="city" class="present-field">
-            <label for="state">State: </label><input type="text" id="state" class="present-field">
-            <label for="pincode">Pin code: </label><input type="number" id="pincode" class="present-field">
+            <label for="street">Street: </label>
+            <input type="text" id="street" class="present-field">
+            <span class="error-msg" id="street-error"></span><br><br>
+
+            <label for="city">City: </label>
+            <input type="text" id="city" class="present-field">
+            <span class="error-msg" id="city-error"></span><br><br>
+
+            <label for="state">State: </label>
+            <input type="text" id="state" class="present-field">
+            <span class="error-msg" id="state-error"></span><br><br>
+
+            <label for="pincode">Pin code: </label>
+            <input type="number" id="pincode" class="present-field">
+            <span class="error-msg" id="pincode-error"></span><br><br>
         </form>
 
         <h3>Permanent Address</h3>
         <form action="" id="permanent-address">
             <input type="checkbox" id="sameAddress">
             <label for="sameAddress">Same as Present Address</label> <br><br>
-            <label for="street-permanent">Street: </label><input type="text" id="street-permanent" class="permanent-field">
-            <label for="city-permanent">City: </label><input type="text" id="city-permanent" class="permanent-field">
-            <label for="state-permanent">State: </label><input type="text" id="state-permanent" class="permanent-field">
-            <label for="pincode-permanent">Pin code: </label><input type="number" id="pincode-permanent" class="permanent-field">
+
+            <label for="street-permanent">Street: </label>
+            <input type="text" id="street-permanent" class="permanent-field">
+            <span class="error-msg" id="street-permanent-error"></span><br><br>
+
+            <label for="city-permanent">City: </label>
+            <input type="text" id="city-permanent" class="permanent-field">
+            <span class="error-msg" id="city-permanent-error"></span><br><br>
+
+            <label for="state-permanent">State: </label>
+            <input type="text" id="state-permanent" class="permanent-field">
+            <span class="error-msg" id="state-permanent-error"></span><br><br>
+
+            <label for="pincode-permanent">Pin code: </label>
+            <input type="number" id="pincode-permanent" class="permanent-field">
+            <span class="error-msg" id="pincode-permanent-error"></span>
         </form>
     </main>
     <script src="./script.js"></script>
